@@ -21,6 +21,7 @@ routerEmpleados.get('/', (req, res) => {
         })
     })
 })
+
 //*Metodo POST
 routerEmpleados.post('/', (req, res) =>{
     req.getConnection( (err, connection) => {
@@ -28,14 +29,42 @@ routerEmpleados.post('/', (req, res) =>{
        //Se insertan datos en la tabla "empleados". Parametros: 1)consulta query 2)Dato a insertar 3) funcion callback
        //El dato a insertar (objeto.json) vienen en un array [req.body]
        //Si se quiere agregar varios datos(objetos.json), se usa la misma cantidad de signos ? que datos
-       connection.query('INSERT INTO empleados set ?', [req,body], (err, rows) =>{
+       connection.query('INSERT INTO empleados set ?', [req.body], (err, rows) =>{
         if(err){
             return res.send(err)
         }
-        res.send('Datos enviados')
        })
     })
 })
 
+//**Metodo DELETE
+routerEmpleados.delete('/:id', (req, res) => {
+    req.getConnection( (err, connection) => {
+        if(err){
+            return res.send(err)
+        }
+        connection.query('DELETE FROM empleados WHERE idempleados = ?', [req.params.id], (err, rows) =>{
+            if(err){
+                return res.send(err)
+            }
+            res.send('Elemento eliminado')
+        })
+    })
+})
+
+//**Metodo PUT
+routerEmpleados.put('/:id', (req, res) =>{
+    req.getConnection( (err, connection) => {
+        if(err){
+            return res.send(err)
+        }
+        connection.query('UPDATE empleados SET ? WHERE idempleados = ?', [req.body, req.params.id], (err, rows) => {
+            if(err){
+                return res.send(err)
+            }
+            res.send('Datos actualizados')
+        })
+    })
+})
 //**Exportar este modulo
 module.exports = routerEmpleados
