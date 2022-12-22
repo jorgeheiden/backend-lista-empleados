@@ -1,6 +1,12 @@
 //** Nodemon: 
 //Click derecho en la carpeta src => open in integrated terminal => nodemon app.js
-
+//**PRODUCCION: para deployar en Railway en package.json agregar en:
+/*
+"scripts": {
+   "test": "echo \"Error: no test specified\" && exit 1",
+   "start": node src/app.js
+ }
+ */
 //Importar express:
 const express = require('express')
 //Accede a la funcion express() esta permite crear una aplicacion de express:
