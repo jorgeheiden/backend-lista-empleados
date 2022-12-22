@@ -13,13 +13,13 @@ const myconn = require('express-myconnection')
 //Importar las rutas
 const routerEmpleados = require('./routes/empleados')
 
-//Crear el objeto de configuraciones de la base de datos
+//Crear el objeto de configuraciones de la base de datos (para produccion y desarrollo local)
 const dbOptions = {
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: '123456',
-    database: 'lista_empleados'
+    host: process.env.DB_HOST || 'localhost',
+    port: process.env.DB_PORT || 3306,
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '123456',
+    database: process.env.DB_NAME || 'lista_empleados'
 }
 //MIDDLEWARES
 //middleware para la conexion con la db
