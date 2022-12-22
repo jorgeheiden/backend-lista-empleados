@@ -4,7 +4,7 @@
 /*
 "scripts": {
    "test": "echo \"Error: no test specified\" && exit 1",
-   "start": node src/app.js
+   "start": "node src/app.js"
  }
  */
 //Importar express:
