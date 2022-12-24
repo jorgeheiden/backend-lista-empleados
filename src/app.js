@@ -18,6 +18,8 @@ const mysql2 = require('mysql2')
 const myconn = require('express-myconnection')
 //Importar las rutas
 const routerEmpleados = require('./routes/empleados')
+//Importar cors
+const cors = require('cors')
 
 //Crear el objeto de configuraciones de la base de datos (para produccion y desarrollo local)
 const dbOptions = {
@@ -33,6 +35,9 @@ const dbOptions = {
 app.use(myconn(mysql2, dbOptions, 'single'))
 //Middleware para que el servidor pueda usar el formato JSON
 app.use(express.json())
+//Configurar los CORS para una pagina especifica. se puede agregar varias paginas separadas por coma ,
+const whiteList = ['http://localhost:4200']
+app.use(cors({ origin: whiteList }))
 
 //*RUTAS: asociar el router a un path
 app.use('/api/empleados', routerEmpleados)
