@@ -33,6 +33,7 @@ routerEmpleados.post('/', (req, res) =>{
         if(err){
             return res.send(err)
         }
+        res.send(rows)
        })
     })
 })
