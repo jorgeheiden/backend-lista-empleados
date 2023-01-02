@@ -48,7 +48,7 @@ routerEmpleados.delete('/:id', (req, res) => {
             if(err){
                 return res.send(err)
             }
-            res.send('Elemento eliminado')
+            res.send(rows)
         })
     })
 })
