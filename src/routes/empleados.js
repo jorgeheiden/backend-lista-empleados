@@ -63,7 +63,7 @@ routerEmpleados.put('/:id', (req, res) =>{
             if(err){
                 return res.send(err)
             }
-            res.send('Datos actualizados')
+            res.send({respuesta: 'Datos Actualizados'})
         })
     })
 })
