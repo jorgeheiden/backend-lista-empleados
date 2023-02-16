@@ -22,6 +22,7 @@ const routerEmpleados = require('./routes/empleados')
 const cors = require('cors')
 
 //Crear el objeto de configuraciones de la base de datos (para produccion y desarrollo local)
+
 const dbOptions = {
     host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || 3306,
@@ -29,6 +30,7 @@ const dbOptions = {
     password: process.env.DB_PASSWORD || '123456',
     database: process.env.DB_NAME || 'lista_empleados'
 }
+
 //MIDDLEWARES
 //middleware para la conexion con la db
 //Parametros: mysql2, objeto de configuraciones y una estrategia de conexion
