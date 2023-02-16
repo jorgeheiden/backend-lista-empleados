@@ -55,8 +55,8 @@ app.listen(app.get('port'), (req, res) => {
     console.log('El servidor esta escuchando en el puerto', app.get('port'))
 })
 //*funcion para probar el funcionamiento del servidor:
-/*
+
 app.get('/', (req, res) =>{
     res.send('Probando servidor. . .')
 })
-*/
+
