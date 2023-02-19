@@ -35,8 +35,11 @@ const dbOptions = {
 //middleware para la conexion con la db
 //Parametros: mysql2, objeto de configuraciones y una estrategia de conexion
 app.use(myconn(mysql2, dbOptions, 'single'))
-//Middleware para que el servidor pueda usar el formato JSON
+
+//Middleware para que el servidor pueda usar el formato JSON 
+//**IMPORTANTE: que este en esta posicion antes del router: app.use('/api/empleados', routerEmpleados)
 app.use(express.json())
+
 //Configurar los CORS para una pagina especifica. se puede agregar varias paginas separadas por coma ,
 const whiteList = ['http://localhost:4200', 'https://lista-de-empleados-69bab.web.app']
 app.use(cors({ origin: whiteList }))
